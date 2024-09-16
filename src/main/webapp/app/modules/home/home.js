@@ -80,10 +80,15 @@ export const Home = () => {
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
+            <a href="http://192.168.29.116:8000/okuma-reader" target="_blank" rel="noopener noreferrer">
               <Translate contentKey="home.link.follow">follow @jhipster on Twitter</Translate>
             </a>
           </li>
+           <li>
+           <a href="/okuma-reader" target="_self">
+                      Write Your Book
+           </a>
+            </li>
         </ul>
 
         <p>
