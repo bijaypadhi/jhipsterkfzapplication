@@ -6,7 +6,7 @@ function WriteABook() {
   return (
     <Box as="section" className="write-a-book container" id="bookStore">
       <Box className="content-right">
-        <Image src="/assets/images/AI.svg" alt="EVA AI" />
+        <Image src="content/images/AI.svg" alt="EVA AI" />
       </Box>
       <Box className="content-left">
         <h2>Write a Book & Publish it.</h2>

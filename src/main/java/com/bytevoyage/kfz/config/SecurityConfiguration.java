@@ -146,4 +146,5 @@ public class SecurityConfiguration {
 
         return jwtDecoder;
     }
+
 }

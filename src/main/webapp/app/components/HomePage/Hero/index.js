@@ -28,7 +28,7 @@ function Hero() {
       <Box className="content-right">
         <Image
           className="move-up-down "
-          src="/assets/images/AI-robot.svg"
+          src="content/images/AI-robot.svg"
           alt="EVA AI"
         />
       </Box>

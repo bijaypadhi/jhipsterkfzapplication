@@ -29,7 +29,7 @@ function BookCard() {
         </CardHeader>
         <Image
           objectFit="cover"
-          src="/assets/images/books-covers/cover-1.jpeg"
+          src="content/images/books-covers/cover-1.jpeg"
           alt="Family"
         />
         <CardFooter

@@ -69,7 +69,15 @@ module.exports = async options => {
       module: {
         rules: [
           {
-            test: /\.tsx?$/,
+             test: /\.(j|t)sx?$/,  // 1. Target files with `.js`, `.jsx`, `.ts`, and `.tsx` extensions
+                use: [
+                  {
+                    loader: 'babel-loader',  // 2. Add babel-loader for JS/JSX (optional, depending on your needs)
+                    options: {
+                      presets: ['@babel/preset-env', '@babel/preset-react'],  // Support for modern JS and React
+                    },
+                  },
+                 ],
             use: getTsLoaderRule(options.env),
             include: [utils.root('./src/main/webapp/app')],
             exclude: [utils.root('node_modules')],

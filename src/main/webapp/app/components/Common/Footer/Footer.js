@@ -3,36 +3,37 @@ import { Link } from "react-router-dom";
 import { FaYoutube, FaFacebook } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { Box } from "@chakra-ui/react";
-function Footer() {
+
+const Footer: React.FC = () => {
   return (
     <>
       <Box as="footer" className="footer container">
         <div className="footer-menu-wrap">
           <div className="footer-logo">
-            <Link href="#">
-              <img src="/assets/images/kfz-logo.svg" alt="Kids Fun Zone Logo" />
+            <Link to="#">
+              <img src="content/images/kfz-logo.svg" alt="Kids Fun Zone Logo" />
             </Link>
           </div>
           <div className="footer-menu">
             <ul>
               <li>
-                <Link href="#">FAQ’s</Link>
+                <Link to="#">FAQ’s</Link>
               </li>
               <li>
-                <Link href="#">Help & Support</Link>
+                <Link to="#">Help & Support</Link>
               </li>
               <li>
-                <Link href="#">Contact us</Link>
+                <Link to="#">Contact us</Link>
               </li>
             </ul>
           </div>
           <div className="footer-menu">
             <ul>
               <li>
-                <Link href="#">Privacy Policy</Link>
+                <Link to="#">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="#">Terms & Conditions</Link>
+                <Link to="#">Terms & Conditions</Link>
               </li>
               {/* <li>
                 <a href="#">Shipping, Cancellation & Refund Policy</a>
@@ -43,17 +44,17 @@ function Footer() {
             <p>Follow us</p>
             <ul>
               <li>
-                <Link href="#" className="youtube">
+                <Link to="#" className="youtube">
                   <FaYoutube />
                 </Link>
               </li>
               <li>
-                <Link href="#" className="instagram">
+                <Link to="#" className="instagram">
                   <RiInstagramFill />
                 </Link>
               </li>
               <li>
-                <Link href="#" className="facebook">
+                <Link to="#" className="facebook">
                   <FaFacebook />
                 </Link>
               </li>

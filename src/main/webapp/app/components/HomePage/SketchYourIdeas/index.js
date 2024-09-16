@@ -31,7 +31,7 @@ function SketchYourIdeas() {
         </Button>
       </Box>
       <Box className="content-right">
-        <Image src="/assets/images/sketch.svg" alt="EVA AI" />
+        <Image src="content/images/sketch.svg" alt="EVA AI" />
       </Box>
     </Box>
   );
