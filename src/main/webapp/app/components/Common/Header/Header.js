@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { HashLink as Link } from "react-router-hash-link";
-import { BiUser, BiKey} from "react-icons/bi";
-
+import React from 'react';
+import { useReducer } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
+import { BiUser, BiKey } from 'react-icons/bi';
 import {
   Box,
   ListItem,
@@ -28,8 +28,26 @@ import {
   Text,
   InputLeftElement,
   Image,
-} from "@chakra-ui/react";
-import VerifyOTP from "../VerifyOTP";
+} from '@chakra-ui/react';
+import VerifyOTP from '../VerifyOTP';
+
+// Define the initial state
+const initialState = {
+  isBoxOpen: false, // To toggle OTP box
+};
+
+// Define the reducer function
+function reducer(state, action) {
+  switch (action.type) {
+    case 'TOGGLE_BOX':
+      return {
+        ...state,
+        isBoxOpen: !state.isBoxOpen, // Toggle the OTP box
+      };
+    default:
+      return state;
+  }
+}
 
 function Header() {
   const {
@@ -37,10 +55,15 @@ function Header() {
     onOpen: onLoginModalOpen,
     onClose: onLoginModalClose,
   } = useDisclosure();
-  const [isBoxOpen, setIsBoxOpen] = useState(false);
+
+  // useReducer hook
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Toggle box handler
   const handleToggleBox = () => {
-    setIsBoxOpen(!isBoxOpen);
+    dispatch({ type: 'TOGGLE_BOX' });
   };
+
   return (
     <>
       <Box
@@ -51,9 +74,9 @@ function Header() {
         justifyContent="space-between"
         className="header"
       >
-        <Link href="#">
+        <Link to="#">
           <Image
-            src="/assets/images/kfz-logo.svg"
+            src="content/images/kfz-logo.svg"
             alt="Kids Fun Zone Logo"
             h="50px"
           />
@@ -86,14 +109,6 @@ function Header() {
             </ListItem>
           </UnorderedList>
           <Box display="flex" alignItems="center" gap="20px">
-            {/* <Button
-              ref={btnRef}
-              onClick={onOpen}
-              className="icon-btn-primary"
-              colorScheme="teal"
-            >
-              <FiShoppingCart />
-            </Button> */}
             <Button
               onClick={onLoginModalOpen}
               className="btn-secondary-solid"
@@ -103,7 +118,6 @@ function Header() {
             </Button>
 
             {/* login/signup modal */}
-
             <Modal isOpen={isModalOpen} onClose={onLoginModalClose} size="md">
               <ModalOverlay />
               <ModalContent borderRadius="14px">
@@ -112,9 +126,9 @@ function Header() {
                 <ModalBody>
                   <Tabs isFitted position="relative">
                     <TabList>
-                      <Tab _selected={{ color: "purple.700" }}>Email</Tab>
-                      <Tab _selected={{ color: "purple.700" }}>Username</Tab>
-                      <Tab _selected={{ color: "purple.700" }}>Sign Up</Tab>
+                      <Tab _selected={{ color: 'purple.700' }}>Email</Tab>
+                      <Tab _selected={{ color: 'purple.700' }}>Username</Tab>
+                      <Tab _selected={{ color: 'purple.700' }}>Sign Up</Tab>
                     </TabList>
                     <TabIndicator
                       mt="-1.5px"
@@ -123,10 +137,10 @@ function Header() {
                       borderRadius="1px"
                     />
                     <TabPanels>
-                      {/* mobile login */}
+                      {/* Email login */}
                       <TabPanel>
                         <FormControl py="30px">
-                          {!isBoxOpen && (
+                          {!state.isBoxOpen && (
                             <Box className="floating-label">
                               <label>Email address</label>
                               <InputGroup size="lg" className="input-group">
@@ -143,7 +157,7 @@ function Header() {
                                   </Button>
                                 </InputRightAddon>
                                 <FormErrorMessage>
-                                  Enter 10 digit valid number!
+                                  Enter a valid email address!
                                 </FormErrorMessage>
                               </InputGroup>
                               <Box
@@ -156,7 +170,7 @@ function Header() {
                                 <h4>Not registered yet?</h4>
                                 <Link
                                   as="bold"
-                                  href="#"
+                                  to="#"
                                   className="link text-underline"
                                 >
                                   <Text as="b">Sign Up</Text>
@@ -164,12 +178,12 @@ function Header() {
                               </Box>
                             </Box>
                           )}
-                          {isBoxOpen && <VerifyOTP />}
+                          {state.isBoxOpen && <VerifyOTP />}
                         </FormControl>
                       </TabPanel>
-                      {/* mobile login end*/}
+                      {/* Email login end */}
 
-                      {/* username */}
+                      {/* Username login */}
                       <TabPanel>
                         <FormControl py="30px">
                           <Box className="floating-label">
@@ -216,7 +230,7 @@ function Header() {
                             <h4>Not registered yet?</h4>
                             <Link
                               as="bold"
-                              href="#"
+                              to="#"
                               className="link text-underline"
                             >
                               <Text as="b">Sign Up</Text>
@@ -224,24 +238,25 @@ function Header() {
                           </Box>
                         </FormControl>
                       </TabPanel>
-                      {/* username end */}
-                      {/* sign up */}
+                      {/* Username login end */}
+
+                      {/* Sign Up */}
                       <TabPanel>
                         <FormControl py="20px">
                           <Box textAlign="center">
-                            <button class="gsi-material-button">
-                              <div class="gsi-material-button-state"></div>
-                              <div class="gsi-material-button-content-wrapper">
-                                <div class="gsi-material-button-icon">
+                            <button className="gsi-material-button">
+                              <div className="gsi-material-button-state"></div>
+                              <div className="gsi-material-button-content-wrapper">
+                                <div className="gsi-material-button-icon">
                                   <img
                                     src="/assets/images/sign-in-with-google.svg"
                                     alt="Sign in with Google"
                                   />
                                 </div>
-                                <span class="gsi-material-button-contents">
+                                <span className="gsi-material-button-contents">
                                   Sign in with Google
                                 </span>
-                                <span style={{ display: "none" }}>
+                                <span style={{ display: 'none' }}>
                                   Sign in with Google
                                 </span>
                               </div>
@@ -251,18 +266,7 @@ function Header() {
                             <span>OR</span>
                           </Box>
 
-                          {/* <Box className="floating-label" mt="32px">
-                            <label>
-                              Mobile
-                            </label>
-                            <InputGroup>
-                              <InputLeftElement pointerEvents="none">
-                                <BiPhone color="gray.300"  className="input-icon" />
-                              </InputLeftElement>
-                              <Input type="tel" placeholder="Mobile" />
-                            </InputGroup>
-                          </Box> */}
-                          {!isBoxOpen && (
+                          {!state.isBoxOpen && (
                             <>
                               <Box className="floating-label" mt="32px">
                                 <label>Full Name</label>
@@ -292,7 +296,7 @@ function Header() {
                                     </Button>
                                   </InputRightAddon>
                                   <FormErrorMessage>
-                                    Enter 10 digit valid number!
+                                    Enter a valid email address!
                                   </FormErrorMessage>
                                 </InputGroup>
                               </Box>
@@ -308,7 +312,7 @@ function Header() {
                               </Box>
                             </>
                           )}
-                          {isBoxOpen && (
+                          {state.isBoxOpen && (
                             <Box mt="32px">
                               <VerifyOTP />
                             </Box>
@@ -321,10 +325,10 @@ function Header() {
                             justifyContent="center"
                             gap="8px"
                           >
-                            <h4> Already registered? </h4>
+                            <h4>Already registered?</h4>
                             <Link
                               as="bold"
-                              href="#"
+                              to="#"
                               className="link text-underline"
                             >
                               <Text as="b">Login</Text>
@@ -332,17 +336,16 @@ function Header() {
                           </Box>
                         </FormControl>
                       </TabPanel>
-                      {/* sign up end */}
                     </TabPanels>
                   </Tabs>
                 </ModalBody>
               </ModalContent>
             </Modal>
-            {/* login/signup modal end*/}
           </Box>
         </Box>
       </Box>
     </>
   );
 }
+
 export default Header;

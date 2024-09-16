@@ -15,8 +15,8 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getSession } from 'app/shared/reducers/authentication';
 import { getProfile } from 'app/shared/reducers/application-profile';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
-import Header from 'app/shared/layout/header/header';
-import Footer from 'app/shared/layout/footer/footer';
+import Header from './components/Common/Header/Header';
+import Footer from './components/Common/Footer/Footer';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
@@ -48,16 +48,6 @@ export const App = () => {
           className="toastify-container"
           toastClassName="toastify-toast"
         />
-        <ErrorBoundary>
-          <Header
-            isAuthenticated={isAuthenticated}
-            isAdmin={isAdmin}
-            currentLocale={currentLocale}
-            ribbonEnv={ribbonEnv}
-            isInProduction={isInProduction}
-            isOpenAPIEnabled={isOpenAPIEnabled}
-          />
-        </ErrorBoundary>
 
         <div className="container-fluid view-container" id="app-view-container">
 
@@ -89,8 +79,6 @@ export const App = () => {
               </Routes>
             </ErrorBoundary>
 
-
-          <Footer />
         </div>
       </div>
     </Router>
