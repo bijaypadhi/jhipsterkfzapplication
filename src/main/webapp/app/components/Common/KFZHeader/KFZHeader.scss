@@ -1,0 +1,32 @@
+.header {
+  padding: 12px 50px;
+  margin: 0 auto;
+  background: $fade-green-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav {
+  > a {
+    img {
+      height: 70px;
+    }
+  }
+  > ul {
+    > li {
+      > a {
+        font-size: 16px;
+        display: block;
+        border-bottom: 2px solid $fade-green-color;
+        padding: 10px 0;
+        transition: all 1s;
+        font-weight: normal;
+        &:hover,
+        &.active {
+          color: $purple-color;
+          border-bottom: 2px solid $purple-color;
+        }
+      }
+    }
+  }
+}
