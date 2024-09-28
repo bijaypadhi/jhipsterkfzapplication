@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "kfzgroup",
+  "private_key_id": "af695d451a881e7fc3699d9d7f3787e8b709fb31",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCgKDxhwdSQUWrj\nDwzRfaR6gmaT7zuh27LaJysTDNx8oSJ0o6FJkNUkYzfwPmmRigpZP+KqAHM7l+38\nP2r7sX3YybVgmmaJFn3hbXR02sDl+ZuqrOxPvFPNjWFd0ZOH0Fu/ouDueG+s+oiB\nBRfRMYJxvMjwE0alFf2HzKXTKxJo+/9O1jc3BGCpLJSlPK2NP2JVZgbmwEsBoMqC\nD+R3q4X/w1/wJqfqnnmbOE3/Xfgxp9tGYcQucDIeZDKpkVqg7/hOo5aV2Lpqwtja\nExXlLM7P0rLfOYcw/9zagM5BOpEwGldxVrtZE+cyimFqRx79VtKmZc/H2pRCkS6l\nBstb9unzAgMBAAECggEANldAmZi3Q1pkrnLyUfhUAP9Sx7oB3Tralft5OYcBHsZb\nlwDYHkpmj2ic18aNckTImxy6jx0E/EDiDlcEOS8xeIeEI6lvxe7cOks1mtqIXd+R\n6liu+6T2OEXStg8AhDH1l3Gv6SnzFlmRTFmKib/HN0krUo3vx97MvbF5yEsSfY0N\nx3zX2KyyCzkZYfwOiCzUOKIXNOlMmn4dZN37u+UCybzlieBdTZp2pO5s3/1hSwjE\nWynCXnGUiVcm2R/MEPn3uQPEvBU02eoPdNyB7jS6hy/bRWEtpgkNTXAZTfGrWEnx\ntHUdToBkt2G0WDY87HXx7NzVeYytKIrHcXxwqhpm6QKBgQDRnnjl0NOy2Pty3mts\ncYwzSGS1kgwgAHBiu0HpvkKqHY6E8ddp4cOdHHeoKTEqRIliDatoLv8U/OqUhc7D\np2x4UzNsjUdGnCZgHBubPdgpiC8EuerkmcyfiJKGeNURzZo13UicsTMKcxxtNhMX\nvKe+dHbKI1i0VO5BwNMAlXzFyQKBgQDDmBPIesYyRb7W3+pi2s+NUnro7z+3xBDv\n3gVsRMo1F4fdJ5VVsX/+x+cekIPcBMbYuxvHfpIC44Gd6ACVOjPdbiB1pmOt1EbE\nfvJ3wAAVNkwGFnlIgf9UwQpA1CU4KxTOFBymwCxk2601EpjUxIKujXBJlG8Z3OjK\nLYh+jMN/2wKBgDla7yGSvhoVnNeVXDdT6lSt3kCAMakf9aBONH7MfFkntTNTKOnj\nyC5Y97SfcMBr+FtH+jqLgWgwu87fve9zBA74VP3Culnrp+RsTHFxvo++n37fkBH0\nszSDnfQFY+d3JlbOsWuOYLTfQkvvm9HG4O8P1uEAQuk0w+xh4loqjPVhAoGAQTqW\nXmWTc3CPFFnYcN9IGHlJRCWFumNIwrXoWRMX3FzckoSA6PMpHG7ORQMs9lMhfWXo\n/b7YMt5se5zDlQC0C0SOzq2O0Inaj+1GL2l4nZpeACm+iM/RtxIpuTUGtJSpe5B5\nfaLZK0mXmft5vHtMmanRqLg31Qg3GjXVL18CU8ECgYBQjux9M+OhQ08FsnhdQ1js\nAxwcd9mWDIeCLeCf8pRJG7o5aT4hFqqjT5cWQBFHANgeHOiSu9vd0Jv+LQ7N9+sy\nN9TZNfLJbksRs8miyIkeHwQ2sS6Rm5AFXs86Xd1GkrF5haVdYAgpp79FxlEaE+bC\npMCGEcUeEWY0XT3TWmPRow==\n-----END PRIVATE KEY-----\n",
+  "client_email": "kfzbucketservice@kfzgroup.iam.gserviceaccount.com",
+  "client_id": "100067170861571995419",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kfzbucketservice%40kfzgroup.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -17,6 +17,7 @@ import Footer from 'app/shared/layout/footer/footer';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import OkumaReaderModal from 'app/modules/book/OkumaReaderModal';
 import CanvasModal from 'app/modules/canvas/CanvasModal';
+import IntegrationPage from 'app/modules/sample/integrationPage';
 import usePortal from 'react-useportal';
 // import { createPortal } from 'react-useportal';
 const baseHref = document.querySelector('base')?.getAttribute('href')?.replace(/\/$/, '') || '';
@@ -66,6 +67,7 @@ export const App = () => {
               <Route path="/about" element={<AppRoutes />} />
               <Route path="/contact" element={<AppRoutes />} />
               <Route path="/help" element={<AppRoutes />} />
+              <Route path="/sample/integrationPage" element={<IntegrationPage />} />
               <Route path="*" element={<AppRoutes />} />
             </Routes>
             {/* <div>

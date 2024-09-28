@@ -80,6 +80,7 @@ public class SecurityConfiguration {
             .antMatchers("/content/**").permitAll()
             .antMatchers("/swagger-ui/**").permitAll()
             .antMatchers("/test/**").permitAll()
+            .antMatchers("/api/gcs/**").permitAll()  //need to change after login page created
             .antMatchers("/api/authenticate").permitAll()
             .antMatchers("/api/auth-info").permitAll()
             .antMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
