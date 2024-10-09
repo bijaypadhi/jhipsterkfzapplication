@@ -34,12 +34,12 @@ public class BookResource {
                                @RequestParam(defaultValue = "asia") String location) {
         try {
             // Create the bucket with the provided name, storage class, and location
-            Bucket bucket = storage.create(Bucket.newBuilder(bucketName)
-                .setLocation(location)
-                .setStorageClass(StorageClass.valueOf(storageClass))
-                .build());
-
-            return "Bucket '" + bucket.getName() + "' successfully created.";
+           //  Bucket bucket = storage.create(Bucket.newBuilder(bucketName)
+             //   .setLocation(location)
+               // .setStorageClass(StorageClass.valueOf(storageClass))
+                //.build());
+            return "successfully created.";
+           // return "Bucket '" + bucket.getName() + "' successfully created.";
         } catch (Exception e) {
             return "Error creating bucket: " + e.getMessage();
         }
@@ -53,15 +53,15 @@ public class BookResource {
             String folderName = subfolderPath + "library_" + userId + "/";
 
             // Check if the folder already exists
-            if (storage.get(bucketName, folderName) != null) {
-                return "Folder '" + folderName + "' already exists in bucket '" + bucketName + "'.";
-            }
+          //  if (storage.get(bucketName, folderName) != null) {
+            //    return "Folder '" + folderName + "' already exists in bucket '" + bucketName + "'.";
+          //  }
 
             // Create an empty blob to simulate folder creation
-            BlobInfo blobInfo = BlobInfo.newBuilder(bucketName, folderName).build();
-            storage.create(blobInfo);
-
-            return "Folder '" + folderName + "' created in bucket '" + bucketName + "' within the subfolder.";
+           // BlobInfo blobInfo = BlobInfo.newBuilder(bucketName, folderName).build();
+            // storage.create(blobInfo);
+            return "within the subfolder.";
+           // return "Folder '" + folderName + "' created in bucket '" + bucketName + "' within the subfolder.";
         } catch (Exception e) {
             return "Error creating folder: " + e.getMessage();
         }

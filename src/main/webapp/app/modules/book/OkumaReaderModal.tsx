@@ -17,6 +17,25 @@ const OkumaReaderModal: React.FC<OkumaReaderModalProps> = ({ isOpen, onClose, us
     setIframeSrc(userId ? `${baseUrl}?userId=${userId}` : baseUrl);
   }, [userId]);
 
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin === "http://localhost:8000") {
+        // Handle the received message
+        if (event.data.action === "startRecognition") {
+          console.log("Start recognition command received");
+        } else if (event.data.action === "abortRecognition") {
+          console.log("Abort recognition command received");
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(

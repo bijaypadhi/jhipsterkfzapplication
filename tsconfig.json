@@ -21,8 +21,11 @@
     },
     "importHelpers": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "skipLibCheck": true
   },
-  "include": ["src/main/webapp/app"],
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
+  "include": ["src/main/webapp/app", "src/types", "src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx","src/test/**/*"]
+
 }

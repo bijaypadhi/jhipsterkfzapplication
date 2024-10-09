@@ -1,7 +1,7 @@
 import React, { useReducer, useRef, useEffect, useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import { BiUser, BiKey } from 'react-icons/bi';
-import IntegrationPage from 'app/modules/sample/integrationPage';
+
 import {
   Box,
   ListItem,
@@ -98,6 +98,9 @@ function KFZHeader() {
             <ListItem>
               <Link to="#aboutSection">About KFZ</Link>
             </ListItem>
+             <ListItem>
+                   <Link to="/sample">sample</Link>
+              </ListItem>
             <ListItem>
               <Link to="#bookStore">Write a Book</Link>
             </ListItem>
@@ -266,7 +269,7 @@ function KFZHeader() {
                                               <Box display="flex" pt="30px" textAlign="center" justifyContent="center" gap="8px">
                                                 <h4>Already registered?</h4>
 
-                                                <Link as="bold" to="/sample/integrationPage" className="link text-underline">
+                                                <Link as="bold" to="sample" className="link text-underline">
                                                   <Text as="b">Login</Text>
                                                 </Link>
                                               </Box>

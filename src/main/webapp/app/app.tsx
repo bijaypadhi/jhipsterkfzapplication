@@ -12,13 +12,14 @@ import { getProfile } from 'app/shared/reducers/application-profile';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
+import Sample from 'app/modules/sample/sample';
 import Header from 'app/shared/layout/header/header';
 import Footer from 'app/shared/layout/footer/footer';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import OkumaReaderModal from 'app/modules/book/OkumaReaderModal';
 import CanvasModal from 'app/modules/canvas/CanvasModal';
-import IntegrationPage from 'app/modules/sample/integrationPage';
 import usePortal from 'react-useportal';
+
 // import { createPortal } from 'react-useportal';
 const baseHref = document.querySelector('base')?.getAttribute('href')?.replace(/\/$/, '') || '';
 
@@ -67,7 +68,7 @@ export const App = () => {
               <Route path="/about" element={<AppRoutes />} />
               <Route path="/contact" element={<AppRoutes />} />
               <Route path="/help" element={<AppRoutes />} />
-              <Route path="/sample/integrationPage" element={<IntegrationPage />} />
+              <Route path="/sample" element={<Sample />} />
               <Route path="*" element={<AppRoutes />} />
             </Routes>
             {/* <div>
