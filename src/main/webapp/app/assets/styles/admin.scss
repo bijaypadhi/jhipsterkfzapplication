@@ -1,0 +1,47 @@
+@import "colors.scss";
+@import "font.scss";
+body {
+  .sidebar {
+    height: 100vh;
+    background: $purple-color;
+    .sidebar-kfz-logo {
+      background: #1d1b34;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    &.chakra-button {
+      font-size: 30px;
+      height: 50px;
+      width: 50px;
+      padding: 0;
+      background: $magenta-color;
+      color: $white;
+      border-radius: 14px;
+    }
+    .menu-item {
+      > a,
+      &.logout {
+        padding: 12px 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+        color:$white;
+        background: transparent;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover, &.active{
+          text-decoration: none;
+          background: $fade-purple-color;
+        }
+        >svg{
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}

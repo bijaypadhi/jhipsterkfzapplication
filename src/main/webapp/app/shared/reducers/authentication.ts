@@ -10,6 +10,7 @@ export const initialState = {
   loading: false,
   isAuthenticated: false,
   account: {} as any,
+  userInfo: {}, 
   errorMessage: null as unknown as string, // Errors returned from server side
   redirectMessage: null as unknown as string,
   sessionHasBeenFetched: false,
@@ -64,6 +65,13 @@ export const AuthenticationSlice = createSlice({
         ...state,
         loading: false,
         isAuthenticated: false,
+        userInfo: {}, // Clear userInfo on logout or error
+      };
+    },
+    setUserInfo(state, action) {
+      return {
+        ...state,
+        userInfo: action.payload,
       };
     },
   },
@@ -75,6 +83,7 @@ export const AuthenticationSlice = createSlice({
         isAuthenticated: false,
         sessionHasBeenFetched: true,
         errorMessage: action.error.message,
+        userInfo: {}, // Clear userInfo on account fetch failure
       }))
       .addCase(getAccount.fulfilled, (state, action) => {
         const isAuthenticated = action.payload && action.payload.data && action.payload.data.activated;
@@ -84,6 +93,7 @@ export const AuthenticationSlice = createSlice({
           loading: false,
           sessionHasBeenFetched: true,
           account: action.payload.data,
+          userInfo: action.payload.data, // Store userInfo when account fetch is successful
         };
       })
       .addCase(logoutServer.fulfilled, (state, action) => ({
@@ -96,7 +106,7 @@ export const AuthenticationSlice = createSlice({
   },
 });
 
-export const { authError, clearAuth } = AuthenticationSlice.actions;
+export const { authError, clearAuth, setUserInfo } = AuthenticationSlice.actions;
 
 // Reducer
 export default AuthenticationSlice.reducer;

@@ -1,24 +1,40 @@
 // OkumaReaderModal.tsx
-import React from 'react';
+import React,{useRef,useState} from 'react';
 import ReactDOM from 'react-dom';
-
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+import { Box,Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from "@chakra-ui/react";
 import './canvas.scss'; // Ensure you have appropriate styles for the modal
+import Loading from 'app/components/loading/Loading';
 
 interface OkumaReaderModalProps {
   isOpen: boolean;
   onClose: () => void;
+  isLoading : boolean;
 }
 
-const OkumaReaderModal: React.FC<OkumaReaderModalProps> = ({ isOpen, onClose }) => {
+const OkumaReaderModal: React.FC<OkumaReaderModalProps> = ({ isOpen, onClose,isLoading }) => {
+  // const [scale, setScale] = useState(1);
+  const iframeRef = useRef(null);
   if (!isOpen) return null;
 
+  // const handleFullscreen = () => {
+  //       if (iframeRef.current) {
+  //           if (document.fullscreenElement) {
+  //               document.exitFullscreen();
+  //           } else {
+  //               iframeRef.current.requestFullscreen();
+  //           }
+  //       }
+  //   }
+  
   return ReactDOM.createPortal(
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
-          &times;
-        </button>
-         <iframe
+    <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent maxWidth="80vw" height="85vh">
+          <ModalCloseButton />
+          <ModalBody style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+          {isLoading ? <Loading /> :
+          <iframe
             src="http://localhost:8000/bookwriter/"
             style={{
              width: '100%',
@@ -35,10 +51,10 @@ const OkumaReaderModal: React.FC<OkumaReaderModalProps> = ({ isOpen, onClose }) 
            allowFullScreen
            title="KFZ BookWriter"
 
-         />
-
-      </div>
-    </div>,
+         />}
+          </ModalBody>
+        </ModalContent>
+      </Modal>,
     document.getElementById('root')!
   );
 };

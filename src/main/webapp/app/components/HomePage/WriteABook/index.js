@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa6";
 import { TbBulb } from "react-icons/tb";
 function WriteABook() {
   return (
-    <Box as="section" className="write-a-book kfz-container" id="bookStore">
+    <Box as="section" className="write-a-book container" id="bookStore">
       <Box className="content-right">
         <Image src="content/images/AI.svg" alt="EVA AI" />
       </Box>

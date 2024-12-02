@@ -1,24 +1,8 @@
-@import 'colors.scss';
-// font
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-$nunito-font: 'Nunito', sans-serif;
-$cherry-font: 'Cherry Bomb One', system-ui;
+@import "colors.scss";
+@import "font.scss";
 html {
-  scroll-padding-top: 79px;
+  scroll-padding-top: 73px;
   scroll-behavior: smooth;
-  font-family: $nunito-font;
-}
-img {
-  max-width: 100%;
-}
-a {
-  text-decoration: none;
-}
-h2,
-p {
-  margin: 0;
 }
 body {
   .no-list-style {
@@ -26,8 +10,7 @@ body {
   }
   // buttons
   .chakra-button {
-    padding: 12px 20px;
-    cursor: pointer;
+    padding: 5px 20px;
   }
   .icon-btn-primary {
     font-size: 18px;
@@ -75,7 +58,6 @@ body {
     color: $white;
     transition: all 1s;
     border-radius: 14px;
-    border: 1px solid $magenta-color;
     height: var(--chakra-sizes-12);
     &:hover {
       background: $fade-magenta-color;
@@ -83,7 +65,7 @@ body {
   }
   .btn-lg {
     font-size: 18px;
-    padding: 20px 30px;
+    padding: 30px;
     min-width: 240px;
   }
   .link {
@@ -91,17 +73,17 @@ body {
     cursor: pointer;
     font-family: $nunito-font;
   }
-  .view-all-link {
+  .view-all-link{
     font-size: 20px;
     line-height: 18px;
-    .btn-lg {
-      padding: 16px 30px;
-      font-family: $nunito-font;
-      text-decoration: none;
-      &:hover {
-        background: $magenta-color;
-        color: $white;
-      }
+    .btn-lg{
+     padding: 16px 30px;
+     font-family: $nunito-font;
+     text-decoration: none;
+     &:hover{
+      background: $magenta-color;
+      color: $white;
+     }
     }
   }
   .text-underline {
@@ -150,16 +132,13 @@ body {
       font-size: 16px;
     }
   }
-  .avatar {
+  .avatar{
     border-color: $green-color;
     border-width: 2px;
     border-style: solid;
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    overflow: hidden;
-  }
+  }  
 }
+
 .floating-label {
   position: relative;
   label {
@@ -172,7 +151,7 @@ body {
     padding: 0 5px;
   }
 }
-.kfz-container {
+.container {
   padding-left: 50px;
   padding-right: 50px;
   margin: 0 auto;
@@ -191,15 +170,14 @@ body {
   background-size: contain;
   padding-bottom: 60px;
 }
-.content-left,
-.content-top {
+.content-left, .content-top {
   h1,
   h2 {
     color: $purple-color;
     font-family: $cherry-font;
     font-size: 36px;
     line-height: 46px;
-    small {
+    small{
       display: block;
       font-size: 16px;
       color: $dark-color;
@@ -240,18 +218,18 @@ body {
 .content-right {
   width: 400px;
 }
-.content-top {
+.content-top{
   width: 100%;
   padding: 60px 0;
 }
-.book-card-wrap {
+.book-card-wrap{
   display: flex;
   gap: 30px;
 }
-.content-top .book-card {
+.content-top .book-card{
   border: 3px solid #685eef;
   overflow: hidden;
-  .new-tag {
+  .new-tag{
     position: absolute;
     z-index: 2;
     top: 11px;
@@ -265,13 +243,13 @@ body {
     text-align: center;
     box-shadow: 3px 3px 10px 0px #c7c7c7;
   }
-  h4 {
-    font-size: 16px;
+  h4{
+    font-size: 16px;  
   }
-  p {
+  p{
     font-size: 14px;
   }
-  .card-footer {
+  .card-footer{
     position: absolute;
     z-index: 1;
     bottom: 0;
@@ -279,23 +257,20 @@ body {
     right: 0;
     padding: 10px;
     background: #fff;
-    button.chakra-button {
+    button{
       width: auto;
       font-size: 14px;
       padding: 5px;
-      background: #fff;
-      border: none;
-      min-width: auto;
-      span {
+      span{
         font-size: 22px;
       }
-      &.likes {
+      &.likes{
         color: $pink-color;
       }
-      &.views {
+      &.views{
         color: $blue-color;
       }
-      &.ratings {
+      &.ratings{
         color: $yellow-color;
       }
     }
@@ -344,13 +319,13 @@ body {
   header {
     margin: 0;
     width: 100%;
-  }
+  } 
 }
 .close-drawer {
   z-index: 11;
 }
 // footer
-.footer.kfz-container {
+.footer.container {
   flex-direction: column;
   border-top: 1px solid #e4e5e6;
 }
@@ -370,13 +345,11 @@ body {
   ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     > li {
       a {
         display: inline-block;
         padding: 6px;
         font-size: 13px;
-        font-weight: 400;
         color: $gray-color;
         &:hover {
           color: $dark-color;
@@ -390,10 +363,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: 10px;
   p {
     color: $gray-color;
-    font-weight: 400;
+    font-weight: 600;
   }
   ul {
     display: flex;
@@ -402,14 +374,9 @@ body {
     li {
       a {
         font-size: 20px;
-        border-radius: 20px;
+        border-radius: 16px;
         background: #f3f3f4;
         transition: all 0.3s;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         &:hover {
           transform: scale(1.3);
           background: $fade-green-color;
@@ -438,6 +405,9 @@ body {
 .footer-menu-wrap ul > li a.facebook {
   color: #1877f2;
 }
+.footer-menu-wrap ul > li a.twitter {
+  color: #000000;
+}
 
 // opt section
 .otp-section {
@@ -463,7 +433,7 @@ body {
   }
 }
 .or-divider::after {
-  content: '';
+  content: "";
   width: 100%;
   position: absolute;
   left: 0;
@@ -489,7 +459,7 @@ body {
   box-sizing: border-box;
   color: #1f1f1f;
   cursor: pointer;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   font-size: 14px;
   height: 50px;
   letter-spacing: 0.25px;
@@ -498,7 +468,8 @@ body {
   padding: 0 30px;
   position: relative;
   text-align: center;
-  -webkit-transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+  -webkit-transition: background-color 0.218s, border-color 0.218s,
+    box-shadow 0.218s;
   transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
   vertical-align: middle;
   white-space: nowrap;
@@ -531,7 +502,7 @@ body {
 .gsi-material-button .gsi-material-button-contents {
   -webkit-flex-grow: 1;
   flex-grow: 1;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -570,11 +541,51 @@ body {
 }
 
 .gsi-material-button:not(:disabled):hover {
-  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
 }
 
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
   background-color: #303030;
   opacity: 8%;
+}
+
+// admin css
+.admin-menu{
+  button{
+    display: flex;
+    flex-direction: row;
+    // gap: 5px;
+    align-items: center;
+    justify-content:  center;
+    color: $gray-color;
+    &:hover{
+      color: $purple-color;
+    }
+  }
+}
+.dashboard-wrap{
+  padding: 10px;
+  .content-top {
+    .book-card{      
+        padding: 30px;   
+        align-items: center; 
+      .card-footer{
+        position: unset;
+        margin-top: 20px;
+        button{
+          width: auto;
+    font-size: 18px;
+    padding: 16px 30px;
+    min-width: 240px;
+    border-radius: 10px;
+        }
+      }
+      .card-header{
+        padding: 0;
+      }
+    } 
+  }
 }

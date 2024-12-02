@@ -17,8 +17,13 @@ import Footer from 'app/shared/layout/footer/footer';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import OkumaReaderModal from 'app/modules/book/OkumaReaderModal';
 import CanvasModal from 'app/modules/canvas/CanvasModal';
-import IntegrationPage from 'app/modules/sample/integrationPage';
 import usePortal from 'react-useportal';
+import { ChakraProvider } from '@chakra-ui/react';
+import Sample from './modules/sample';
+import AdminDashboard from './components/Common/Admin/AdminDashboard';
+import MyBook from './components/Common/Admin/MyBook';
+import MySketch from './components/Common/Admin/MySketch';
+
 // import { createPortal } from 'react-useportal';
 const baseHref = document.querySelector('base')?.getAttribute('href')?.replace(/\/$/, '') || '';
 
@@ -55,6 +60,7 @@ export const App = () => {
 
   return (
     <Router basename={baseHref}>
+      <ChakraProvider>
       <div className="app-container" style={{ paddingTop }}>
         <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
 
@@ -67,7 +73,10 @@ export const App = () => {
               <Route path="/about" element={<AppRoutes />} />
               <Route path="/contact" element={<AppRoutes />} />
               <Route path="/help" element={<AppRoutes />} />
-              <Route path="/sample/integrationPage" element={<IntegrationPage />} />
+              <Route path="/sample" element={<Sample />} />
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/admin/mysketch" element={<MySketch />} />
+              <Route path="/admin/mybook" element={<MyBook />} />
               <Route path="*" element={<AppRoutes />} />
             </Routes>
             {/* <div>
@@ -97,6 +106,7 @@ export const App = () => {
           {/* <Footer /> */}
         </div>
       </div>
+      </ChakraProvider>
     </Router>
   );
 };

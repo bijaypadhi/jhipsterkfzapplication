@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa6";
 import { FaMagic } from "react-icons/fa";
 function SketchYourIdeas() {
   return (
-    <Box as="section" className="sketch-your-ideas kfz-container" id="sketchYourIdeas">
+    <Box as="section" className="sketch-your-ideas container" id="sketchYourIdeas">
       <Box className="content-left">
         <h2>Sketch Your Ideas</h2>
         <ul>

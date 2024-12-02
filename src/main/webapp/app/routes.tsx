@@ -10,6 +10,7 @@ import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
+import AdminDashboard from './components/Common/Admin/AdminDashboard';
 
 const loading = <div>loading ...</div>;
 
@@ -32,6 +33,14 @@ const AppRoutes = () => {
             </PrivateRoute>
           }
         />
+        {/* <Route
+          path="admin/dashboard"
+          element={
+            <PrivateRoute hasAnyAuthorities={[AUTHORITIES.ADMIN]}>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        /> */}
         <Route path="oauth2/authorization/oidc" element={<LoginRedirect />} />
         <Route
           path="*"

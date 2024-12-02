@@ -3,7 +3,7 @@ import { Box, Image, Button } from "@chakra-ui/react";
 import { FaPlay } from "react-icons/fa6";
 function Hero() {
   return (
-    <Box as="section" className="hero kfz-container" id="aboutSection">
+    <Box as="section" className="hero container" id="aboutSection">
       <Box className="content-left">
         <h1>
           <span className="k">K</span>

@@ -82,6 +82,15 @@ module.exports = async options => {
             include: [utils.root('./src/main/webapp/app')],
             exclude: [utils.root('node_modules')],
           },
+          {
+            // Rule for image files (e.g., .jpg, .png, .gif, etc.)
+            test: /\.(png|jpe?g|gif|svg)$/i, // Target `.jpg`, `.jpeg`, `.png`, `.gif`, and `.svg` files
+            type: 'asset/resource', // Emits a separate file and exports the URL
+            generator: {
+              filename: 'content/images/[hash][ext][query]', // Customize the output directory for images
+            },
+            include: [utils.root('./src/main/webapp/content/images')], // Include image directory
+          },
           /*
        ,
        Disabled due to https://github.com/jhipster/generator-jhipster/issues/16116

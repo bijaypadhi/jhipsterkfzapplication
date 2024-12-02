@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { FaYoutube, FaFacebook } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
 import { Box } from '@chakra-ui/react';
+import { FaSquareXTwitter } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
   return (
     <>
-      <Box as="footer" className="footer kfz-container">
+      <Box as="footer" className="footer container">
         <div className="footer-menu-wrap">
           <div className="footer-logo">
             <Link to="#">
@@ -44,19 +45,24 @@ const Footer: React.FC = () => {
             <p>Follow us</p>
             <ul>
               <li>
-                <Link to="#" className="youtube">
+                <a href="#" className="youtube">
                   <FaYoutube />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="#" className="instagram">
+                <a href="https://instagram.com/KidsFunZone" className="instagram" target='_blank' rel="noopener noreferrer">
                   <RiInstagramFill />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="#" className="facebook">
+                <a href="https://facebook.com/KidsFunZone" className="facebook" target="_blank" rel="noopener noreferrer">
                   <FaFacebook />
-                </Link>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/KidsFunZone" className="twitter" target="_blank" rel="noopener noreferrer">
+                  <FaSquareXTwitter />
+                </a>
               </li>
             </ul>
           </div>
