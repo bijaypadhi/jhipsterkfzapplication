@@ -85,7 +85,7 @@ function KFZHeader() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [otpSent, setOtpSent] = useState('');
-  const [disableButton,setDisableButton]=useState(false);
+  const [disableButton, setDisableButton] = useState(false);
 
   // Effect to calculate modal position
   useEffect(() => {
@@ -164,7 +164,7 @@ function KFZHeader() {
     setFieldError(errorMessage);
     return result;
   };
-
+  console.error(isSignUp)
   // reset function
   const resetLoginRegistrationHandler = () => {
     setLoginUser(defaultLoginUserDetails);
@@ -172,73 +172,94 @@ function KFZHeader() {
     setFieldError({});
     setDisableButton(false);
     setIsSignUp(false);
+    dispatch({ type: 'TOGGLE_BOX' });
   }
 
   // modal close handler
-  const modalCloseHandler=()=>{
+  const modalCloseHandler = () => {
     resetLoginRegistrationHandler();
     onLoginModalClose();
   }
 
+  // handle change registration
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegisterUser({ ...registerUser, [name]: value });
   };
 
+  // handle switch login to register
+  const handleLoginToRegister = () => {
+    setIsSignUp(true);
+    setLoginUser(defaultLoginUserDetails);
+    setFieldError({});
+    setDisableButton(false);
+  }
+
+  // handle switch register to login
+  const handleRegisterToLogin = () => {
+    setIsSignUp(false);
+    setRegisterUser(defaultRegisterUserDetails);
+    setFieldError({});
+    setDisableButton(false);
+  }
+
   // Register new user
-  const handleRegisterUser = async () => {
+  const handleRegisterUser = () => {
     if (validate()) {
       try {
         // Check if the user already exists 
-        const userQuery = query(collection(db, 'users'), where('phoneNumber', '==', registerUser.phoneNumber));
-        const userSnapshot = await getDocs(userQuery);
-        console.error(userSnapshot)
-        if (!userSnapshot.empty) {
-          toast.error('User already exists with this phone number. Please log in instead.');
-        } else {
-          setDisableButton(true);
-          const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
-          signInWithPhoneNumber(auth, registerUser.phoneNumber, recaptcha)
-            .then((response) => {
-              dispatch({ type: 'TOGGLE_BOX' });
-              setConfirmationResult(response);
-              toast.success("OTP sent successfully!");
-            })
-            .catch((error) => {
-              console.error("Error during OTP send:", error);
-              toast.error("Failed to send OTP. Check console for details.");
-            });
-        }
+        // const userQuery = query(collection(db, 'users'), where('phoneNumber', '==', registerUser.phoneNumber));
+        // const userSnapshot = await getDocs(userQuery);
+        // console.error(userSnapshot)
+        // if (!userSnapshot.empty) {
+        //   toast.error('User already exists with this phone number. Please log in instead.');
+        // } else {
+        setDisableButton(true);
+        const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
+        signInWithPhoneNumber(auth, registerUser.phoneNumber, recaptcha)
+          .then((response) => {
+            dispatch({ type: 'TOGGLE_BOX' });
+            setOtpSent();
+            setConfirmationResult(response);
+            setIsSignUp(false);
+            toast.success("OTP sent successfully!");
+          })
+          .catch((error) => {
+            console.error("Error during OTP send:", error);
+            toast.error("Failed to send OTP. Check console for details.");
+          });
+        // }
       } catch (error) {
         toast.error("Validation failed. Please check your inputs.");
       }
     };
   }
 
-  const handleLoginUserWithPhoneNumber = async () => {
+  // Login user
+  const handleLoginUserWithPhoneNumber = () => {
     if (validate()) {
       try {
         // Check if the user already exists 
-        const userQuery = query(collection(db, 'users'), where('phoneNumber', '==', loginUser.phoneNumber));
-        const userSnapshot = await getDocs(userQuery);
-        console.error(userSnapshot)
-        if (userSnapshot.empty) {
-          toast.error('User does not exist, please create an account.');
-        } else {
-          setDisableButton(true);
-          const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
-          signInWithPhoneNumber(auth, loginUser.phoneNumber, recaptcha)
-            .then((response) => {
-              setConfirmationResult(response);
-              setOtpSent('loginOTP');
-              dispatch({ type: 'TOGGLE_BOX' });
-              toast.success("OTP sent successfully!");
-            })
-            .catch((error) => {
-              console.error("Error during OTP send:", error);
-              toast.error("Failed to send OTP. Check console for details.");
-            });
-        }
+        // const userQuery = query(collection(db, 'users'), where('phoneNumber', '==', loginUser.phoneNumber));
+        // const userSnapshot = await getDocs(userQuery);
+        // console.error(userSnapshot)
+        // if (userSnapshot.empty) {
+        //   toast.error('User does not exist, please create an account.');
+        // } else {
+        setDisableButton(true);
+        const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
+        signInWithPhoneNumber(auth, loginUser.phoneNumber, recaptcha)
+          .then((response) => {
+            setConfirmationResult(response);
+            setOtpSent('loginOTP');
+            dispatch({ type: 'TOGGLE_BOX' });
+            toast.success("OTP sent successfully!");
+          })
+          .catch((error) => {
+            console.error("Error during OTP send:", error);
+            toast.error("Failed to send OTP. Check console for details.");
+          });
+        // }
       } catch (error) {
         toast.error("Validation failed. Please check your inputs.");
       }
@@ -348,7 +369,7 @@ function KFZHeader() {
                           <Link
                             as="bold"
                             to="#"
-                            onClick={() => { setIsSignUp(true); }}
+                            onClick={handleLoginToRegister}
                             className="link text-underline"
                           >
                             <Text as="b">Sign Up</Text>
@@ -450,7 +471,7 @@ function KFZHeader() {
                           <Link
                             as="bold"
                             to="#"
-                            onClick={() => { setIsSignUp(false) }}
+                            onClick={handleRegisterToLogin}
                             className="link text-underline"
                           >
                             <Text as="b">Login</Text>

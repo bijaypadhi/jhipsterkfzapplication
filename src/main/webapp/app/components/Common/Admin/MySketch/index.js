@@ -1,7 +1,7 @@
 import React,{useRef} from "react";
 import HTMLFlipBook from "react-pageflip";
 import AdminLayout from "app/components/Layout/AdminLayout";
-import "./style.scss";
+import "../style.scss";
 import { Button } from "@chakra-ui/react";
 
 const images = [

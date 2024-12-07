@@ -22,7 +22,7 @@ function VerifyOTP(props) {
   const dispatch = useDispatch();
 
   const {confirmationResult,data}=props;
-  
+  console.error(data)
   const [isBoxOpen, setIsBoxOpen] = useState(false);
   const [otp, setOtp] = useState('');
   const [timeLeft, setTimeLeft] = useState(60);
@@ -53,10 +53,10 @@ function VerifyOTP(props) {
       confirmationResult.confirm(otp)
         .then((result) => {
           toast.success('User successfully signed in!');
-          saveUserData({
-            uid: result.user.uid,
-            ...props.data,
-          });
+          // saveUserData({
+          //   uid: result.user.uid,
+          //   ...props.data,
+          // });
           dispatch(setUserInfo({userId:result.user.uid}));
           navigate('/admin/dashboard');
         })
@@ -96,7 +96,7 @@ function VerifyOTP(props) {
               justifyContent: "center",
             }}
           >
-            +91 {data.phoneNumber}
+            {data.phoneNumber}
             <BiEdit
               onClick={handleToggleBox}
               className="link"

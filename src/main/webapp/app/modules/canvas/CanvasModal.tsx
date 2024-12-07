@@ -3,7 +3,7 @@ import React,{useRef,useState} from 'react';
 import ReactDOM from 'react-dom';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { Box,Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from "@chakra-ui/react";
-import './canvas.scss'; // Ensure you have appropriate styles for the modal
+import './Canvas.scss'; // Ensure you have appropriate styles for the modal
 import Loading from 'app/components/loading/Loading';
 
 interface OkumaReaderModalProps {
