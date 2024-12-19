@@ -108,6 +108,7 @@
     "react-icons": "^5.3.0",
     "react-jhipster": "0.22.0",
     "react-loadable": "5.5.0",
+    "react-multi-carousel": "^2.8.5",
     "react-pageflip": "^2.0.3",
     "react-phone-input-2": "^2.15.1",
     "react-phone-number-input": "^3.4.9",
