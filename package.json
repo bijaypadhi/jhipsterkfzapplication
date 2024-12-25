@@ -123,6 +123,7 @@
     "react-zoom-pan-pinch": "^3.6.1",
     "reactstrap": "9.1.4",
     "redux": "4.2.0",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "2.4.1",
     "sass": "^1.77.8",
     "speechkitt": "^1.0.0",

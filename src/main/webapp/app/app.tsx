@@ -23,6 +23,10 @@ import Sample from './modules/sample';
 import AdminDashboard from './components/Common/Admin/AdminDashboard';
 import MyBook from './components/Common/Admin/MyBook';
 import MySketch from './components/Common/Admin/MySketch';
+import Profile from './components/Common/Admin/Profile';
+import PublishBookSketch from './components/Common/Admin/PublishBookSketch';
+import PurchaseBookSketch from './components/Common/Admin/PurchaseBookSketch';
+import Games from './components/Common/Admin/Games';
 
 // import { createPortal } from 'react-useportal';
 const baseHref = document.querySelector('base')?.getAttribute('href')?.replace(/\/$/, '') || '';
@@ -74,9 +78,13 @@ export const App = () => {
               <Route path="/contact" element={<AppRoutes />} />
               <Route path="/help" element={<AppRoutes />} />
               <Route path="/sample" element={<Sample />} />
+              <Route path="/admin/profile" element={<Profile />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/admin/mysketch" element={<MySketch />} />
               <Route path="/admin/mybook" element={<MyBook />} />
+              <Route path="/admin/games" element={<Games />} />
+              <Route path="/admin/publish" element={<PublishBookSketch />} />
+              <Route path="/admin/purchase" element={<PurchaseBookSketch />} />
               <Route path="*" element={<AppRoutes />} />
             </Routes>
             {/* <div>

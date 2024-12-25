@@ -4,6 +4,7 @@ import HTMLFlipBook from "react-pageflip";
 import { Button } from "@chakra-ui/react";
 import AdminLayout from "app/components/Layout/AdminLayout";
 import "../style.scss";
+import { FaCirclePlus } from "react-icons/fa6";
 
 const images = [
   "content/images/pages/01.jpg",
@@ -33,10 +34,9 @@ function MyBook() {
   return (
     <AdminLayout>
       <div className='book-container'>
-        {!isBookOpen ?
-          <div className="book-front-container">
-            <img src={"content/images/book.jpeg"} alt="book" onClick={handleOpenBook} />
-          </div>
+        {!isBookOpen ? <div className="book-front-container">
+          <img src={"content/images/book.jpeg"} alt="book" onClick={handleOpenBook} />
+        </div>
           :
           <>
             <div className="flipbook-container">

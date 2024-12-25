@@ -10,7 +10,7 @@ export const initialState = {
   loading: false,
   isAuthenticated: false,
   account: {} as any,
-  userInfo: {}, 
+  userInfo: localStorage.getItem('userId') ? { userId: localStorage.getItem('userId') } : {}, 
   errorMessage: null as unknown as string, // Errors returned from server side
   redirectMessage: null as unknown as string,
   sessionHasBeenFetched: false,
@@ -22,12 +22,16 @@ export type AuthenticationState = Readonly<typeof initialState>;
 // Actions
 
 export const getSession = (): AppThunk => async (dispatch, getState) => {
-  await dispatch(getAccount());
-
-  const { account } = getState().authentication;
-  if (account && account.langKey) {
-    const langKey = Storage.session.get('locale', account.langKey);
-    await dispatch(setLocale(langKey));
+  const userId = localStorage.getItem('userId');
+  if (userId) {
+    dispatch(setUserInfo({ userId: userId })); // Restore userId to Redux state
+  } else {
+    await dispatch(getAccount());
+    const { account } = getState().authentication;
+    if (account && account.langKey) {
+      const langKey = Storage.session.get('locale', account.langKey);
+      await dispatch(setLocale(langKey));
+    }
   }
 };
 
