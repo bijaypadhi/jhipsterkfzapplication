@@ -1,0 +1,36 @@
+.games-container {
+  display: flex;
+  flex-direction: row;
+  .game-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .game-img-container {
+      width: 250px;
+      border-radius: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #1d1b34;
+      margin: 20px;
+      cursor: pointer;
+  
+      .game-img {
+        width: 250px;
+        height: 200px;
+        border-radius: 10px;
+      }
+  
+      :hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+      }
+    }
+  
+    .game-text {
+      font-weight: bold;
+      font-size: 25px;
+      color: #1d1b34;
+    }
+  }
+}
